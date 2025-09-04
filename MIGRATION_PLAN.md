@@ -8,35 +8,54 @@
 - [ ] Export all data from Base44 (CSV/JSON format)
 - [ ] Download all audio files and cover art from Base44
 
-## Phase 1: Supabase Database Setup (30 minutes)
+## Phase 1: Initial Vercel Deployment (15 minutes)
 
-### 1.1 Create Supabase Project
+### 1.1 Deploy Current Project to Vercel
+1. Install Vercel CLI: `npm install -g vercel`
+2. In your project directory: `vercel`
+3. Follow the prompts:
+   - Set up and deploy? `Y`
+   - Which scope? (your account)
+   - Link to existing project? `N`
+   - Project name: `royaltyfreebeats`
+   - Directory: `./` (current directory)
+   - Override settings? `N`
+4. Note your deployment URL (e.g., `royaltyfreebeats-xyz.vercel.app`)
+
+### 1.2 Verify Deployment
+1. Visit your Vercel URL
+2. The site should load (may have errors due to Base44 dependency)
+3. Go to Vercel dashboard to confirm deployment
+
+## Phase 2: Supabase Database Setup (30 minutes)
+
+### 2.1 Create Supabase Project
 1. Go to https://supabase.com and create account
-2. Click "New Project"
+2. Click "New Project"  
 3. Choose organization and project name: "royalty-free-beats"
 4. Choose region closest to your users
 5. Set a strong database password
 6. Wait for setup to complete (~2 minutes)
 
-### 1.2 Database Schema Setup
+### 2.2 Database Schema Setup
 1. Go to SQL Editor in Supabase dashboard
 2. Copy and paste the entire contents of `migration/01_supabase_schema.sql`
 3. Click "Run" to execute the schema
 4. Verify tables are created in Table Editor
 
-### 1.3 Storage Setup in Supabase
+### 2.3 Storage Setup in Supabase
 1. Go to Storage in Supabase dashboard
 2. Create bucket: `licenses` (for PDF storage)
 3. Make it public
 4. Set up RLS policies for file access
 
-### 1.4 Get Your Supabase Keys
+### 2.4 Get Your Supabase Keys
 1. Go to Settings → API
 2. Copy your Project URL
 3. Copy your anon/public key
 4. Copy your service_role key (keep this secret!)
 
-## Phase 2: Cloudflare R2 Storage Setup (20 minutes)
+## Phase 3: Cloudflare R2 Storage Setup (20 minutes)
 
 ### 2.1 Create Cloudflare Account & R2 Bucket
 1. Go to https://cloudflare.com and create account
@@ -81,9 +100,14 @@ CLOUDFLARE_R2_BUCKET_NAME=royalty-free-beats-storage
 CLOUDFLARE_R2_ACCOUNT_ID=your-account-id
 
 # URLs
-VERCEL_URL=your-vercel-url
+VERCEL_URL=your-vercel-url-from-phase-1
 VITE_APP_URL=http://localhost:5173
 ```
+
+### 3.2 Add Environment Variables to Vercel
+1. Go to Vercel Dashboard → Your Project → Settings → Environment Variables
+2. Add all the variables from your `.env.local` file
+3. Set them for Production, Preview, and Development environments
 
 ## Phase 4: Data Migration (30 minutes)
 
@@ -140,20 +164,18 @@ const { data: beats } = await db.beats.getAll()
 const { data: { user } } = await auth.getUser()
 ```
 
-## Phase 6: Vercel Deployment (20 minutes)
+## Phase 6: Final Deployment & Configuration (20 minutes)
 
-### 6.1 Install Vercel CLI
+### 6.1 Deploy Updated Code with Migration
 ```bash
-npm i -g vercel
+# Install dependencies with new packages
+npm install
+
+# Deploy updated code
+vercel --prod
 ```
 
-### 6.2 Deploy to Vercel
-```bash
-vercel
-```
-Follow prompts to link project
-
-### 6.3 Set Environment Variables in Vercel
+### 6.2 Verify Deployment
 1. Go to Vercel dashboard → Project Settings → Environment Variables
 2. Add all your environment variables
 3. Redeploy: `vercel --prod`

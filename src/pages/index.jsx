@@ -14,7 +14,7 @@ import Support from "./Support";
 
 import trap from "./trap";
 
-import hip-hop from "./hip-hop";
+import hipHop from "./hip-hop";
 
 import drill from "./drill";
 
@@ -22,11 +22,11 @@ import rnb from "./rnb";
 
 import pop from "./pop";
 
-import boom-bap from "./boom-bap";
+import boomBap from "./boom-bap";
 
 import blog from "./blog";
 
-import blog-post from "./blog-post";
+import blogPost from "./blog-post";
 
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 
@@ -46,7 +46,7 @@ const PAGES = {
     
     trap: trap,
     
-    hip-hop: hip-hop,
+    "hip-hop": hipHop,
     
     drill: drill,
     
@@ -54,11 +54,11 @@ const PAGES = {
     
     pop: pop,
     
-    boom-bap: boom-bap,
+    "boom-bap": boomBap,
     
     blog: blog,
     
-    blog-post: blog-post,
+    "blog-post": blogPost,
     
 }
 

@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { CartProvider } from './components/cart/CartContext';
-import MainLayout from './components/layout/MainLayout';
+import { CartProvider } from '../components/cart/CartContext';
+import MainLayout from '../components/layout/MainLayout';
 
 export default function Layout({ children, currentPageName }) {
   return (
