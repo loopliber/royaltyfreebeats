@@ -278,6 +278,23 @@ export const Beat = {
     
     return Promise.resolve(beats);
   },
+  list: (sortBy = '-created_date', limit = null) => {
+    let beats = [...realBeats];
+    
+    // Sort beats by created_date (newest first by default)
+    if (sortBy === '-created_date') {
+      beats.sort((a, b) => new Date(b.created_date) - new Date(a.created_date));
+    } else if (sortBy === 'created_date') {
+      beats.sort((a, b) => new Date(a.created_date) - new Date(b.created_date));
+    }
+    
+    // Apply limit if specified
+    if (limit && limit > 0) {
+      beats = beats.slice(0, limit);
+    }
+    
+    return Promise.resolve(beats);
+  },
   findById: (id) => {
     const beat = realBeats.find(beat => beat.id === id);
     return Promise.resolve(beat || null);
