@@ -1,17 +1,46 @@
 import { base44 } from './base44Client';
 
+// Temporary mock entities for testing during migration
+export const Beat = {
+  find: () => Promise.resolve([]),
+  findById: (id) => Promise.resolve(null),
+  create: (data) => Promise.resolve(data),
+  update: (id, data) => Promise.resolve(data),
+  delete: (id) => Promise.resolve(true)
+};
 
-export const Beat = base44.entities.Beat;
+export const Lead = {
+  create: (data) => Promise.resolve(data),
+  find: () => Promise.resolve([])
+};
 
-export const Lead = base44.entities.Lead;
+export const Purchase = {
+  find: () => Promise.resolve([]),
+  findById: (id) => Promise.resolve(null),
+  create: (data) => Promise.resolve(data)
+};
 
-export const Purchase = base44.entities.Purchase;
+export const BeatLike = {
+  find: () => Promise.resolve([]),
+  create: (data) => Promise.resolve(data),
+  delete: (id) => Promise.resolve(true)
+};
 
-export const BeatLike = base44.entities.BeatLike;
-
-export const BlogPost = base44.entities.BlogPost;
-
-
+export const BlogPost = {
+  find: () => Promise.resolve([]),
+  findById: (id) => Promise.resolve(null),
+  create: (data) => Promise.resolve(data)
+};
 
 // auth sdk:
-export const User = base44.auth;
+export const User = {
+  getUser: () => Promise.resolve(null),
+  signUp: (data) => Promise.resolve(data),
+  signIn: (data) => Promise.resolve(data),
+  signOut: () => Promise.resolve(true),
+  onAuthStateChange: (callback) => {
+    // Mock auth state
+    setTimeout(() => callback(null, null), 100);
+    return { unsubscribe: () => {} };
+  }
+};

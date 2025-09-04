@@ -84,9 +84,9 @@
 
 ```bash
 # Supabase
-VITE_SUPABASE_URL=https://your-project.supabase.co
-VITE_SUPABASE_ANON_KEY=your-anon-key
-SUPABASE_SERVICE_KEY=your-service-key
+VITE_SUPABASE_URL=https://odoepomdbdmdrwmbghqi.supabase.co
+VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9kb2Vwb21kYmRtZHJ3bWJnaHFpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY5ODE2ODQsImV4cCI6MjA3MjU1NzY4NH0.V0K7mkNg66zYh2Rh0a5yw9GquG-JIGBXnEHxaJifZ-o
+SUPABASE_SERVICE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9kb2Vwb21kYmRtZHJ3bWJnaHFpIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1Njk4MTY4NCwiZXhwIjoyMDcyNTU3Njg0fQ.sAqlDWKhq8VmdFc1XrpUumjzRWLw7WoDM68OaBCUm0Y
 
 # Stripe 
 VITE_STRIPE_PUBLISHABLE_KEY=pk_test_...
@@ -94,13 +94,13 @@ STRIPE_SECRET_KEY=sk_test_...
 STRIPE_WEBHOOK_SECRET=whsec_...
 
 # Cloudflare R2
-CLOUDFLARE_R2_ACCESS_KEY_ID=your-access-key
-CLOUDFLARE_R2_SECRET_ACCESS_KEY=your-secret-key
+CLOUDFLARE_R2_ACCESS_KEY_ID=aac38f7d043b2b744e06b1cc16a287aa
+CLOUDFLARE_R2_SECRET_ACCESS_KEY=71e0ea14098eace224223691478c661699fb82804c8fb64661ddb92b5dbf65fc
 CLOUDFLARE_R2_BUCKET_NAME=royalty-free-beats-storage
-CLOUDFLARE_R2_ACCOUNT_ID=your-account-id
+CLOUDFLARE_R2_ACCOUNT_ID=d3819f3d9dd8c4c388208c3f88d27724
 
 # URLs
-VERCEL_URL=your-vercel-url-from-phase-1
+VERCEL_URL=https://royaltyfreebeats-6kqp147l2-ajs-projects-e9a66ff0.vercel.app/
 VITE_APP_URL=http://localhost:5173
 ```
 
